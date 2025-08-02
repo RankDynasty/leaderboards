@@ -1,3 +1,33 @@
+export interface CODMLoadout {
+  id: string;
+  name: string;
+  primaryWeapon: string;
+  secondaryWeapon: string;
+  perks: string[];
+  scorestreaks: string[];
+}
+
+export interface CODMProfile {
+  username: string;
+  uuid: string;
+  level: number;
+  rank: string;
+  kdRatio: number;
+  totalKills: number;
+  totalDeaths: number;
+  gamesPlayed: number;
+  winRate: number;
+  currentSeason: number;
+  clan: string;
+  favoriteWeapon: string;
+  favoriteMode: string;
+  profilePicture: string;
+  codmAvatar: string;
+  loadouts: CODMLoadout[];
+  achievements: string[];
+  lastActive: string;
+}
+
 export interface Member {
   id: string;
   name: string;
@@ -10,6 +40,7 @@ export interface Member {
     total: number;
     lastMonth: number;
   };
+  codmProfile: CODMProfile;
 }
 
 export type Category = "MJ" | "BR";
