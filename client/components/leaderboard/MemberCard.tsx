@@ -42,14 +42,15 @@ export function MemberCard({ entry, showAnimation = false }: MemberCardProps) {
   };
 
   return (
-    <Card
-      className={cn(
-        "p-3 sm:p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5",
-        getRankStyle(),
-        showAnimation && "animate-in slide-in-from-bottom-2 duration-500",
-      )}
-      style={{ animationDelay: showAnimation ? `${rank * 50}ms` : undefined }}
-    >
+    <Link to={`/member/${entry.member.id}`} className="block">
+      <Card
+        className={cn(
+          "p-3 sm:p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 cursor-pointer group",
+          getRankStyle(),
+          showAnimation && "animate-in slide-in-from-bottom-2 duration-500",
+        )}
+        style={{ animationDelay: showAnimation ? `${rank * 50}ms` : undefined }}
+      >
       <div className="flex items-center gap-3 sm:gap-4">
         {/* Rank */}
         <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-muted/50 font-bold text-base sm:text-lg flex-shrink-0">
@@ -95,7 +96,13 @@ export function MemberCard({ entry, showAnimation = false }: MemberCardProps) {
             +{lastMonthPoints}
           </Badge>
         </div>
+
+        {/* View Profile Icon */}
+        <div className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
+          <ExternalLink className="w-4 h-4 text-muted-foreground" />
+        </div>
       </div>
-    </Card>
+      </Card>
+    </Link>
   );
 }
