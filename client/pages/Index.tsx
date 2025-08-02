@@ -1,5 +1,5 @@
-import { Leaderboard } from "@/components/leaderboard/Leaderboard";
+import ClanHomepage from "./ClanHomepage";
 
 export default function Index() {
-  return <Leaderboard />;
+  return <ClanHomepage />;
 }
