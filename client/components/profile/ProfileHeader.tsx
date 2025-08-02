@@ -12,12 +12,18 @@ interface ProfileHeaderProps {
   memberAvatar: string;
 }
 
-export function ProfileHeader({ profile, memberName, memberAvatar }: ProfileHeaderProps) {
+export function ProfileHeader({
+  profile,
+  memberName,
+  memberAvatar,
+}: ProfileHeaderProps) {
   const getLastActiveTime = () => {
     const lastActive = new Date(profile.lastActive);
     const now = new Date();
-    const diffInHours = Math.floor((now.getTime() - lastActive.getTime()) / (1000 * 60 * 60));
-    
+    const diffInHours = Math.floor(
+      (now.getTime() - lastActive.getTime()) / (1000 * 60 * 60),
+    );
+
     if (diffInHours < 1) return "En ligne";
     if (diffInHours < 24) return `Il y a ${diffInHours}h`;
     const diffInDays = Math.floor(diffInHours / 24);
@@ -26,11 +32,16 @@ export function ProfileHeader({ profile, memberName, memberAvatar }: ProfileHead
 
   const getRankColor = () => {
     switch (profile.rank) {
-      case "Legendary": return "bg-gradient-to-r from-yellow-500 to-orange-500";
-      case "Master": return "bg-gradient-to-r from-purple-500 to-pink-500";
-      case "Pro": return "bg-gradient-to-r from-blue-500 to-cyan-500";
-      case "Elite": return "bg-gradient-to-r from-green-500 to-emerald-500";
-      default: return "bg-gradient-to-r from-gray-500 to-slate-500";
+      case "Legendary":
+        return "bg-gradient-to-r from-yellow-500 to-orange-500";
+      case "Master":
+        return "bg-gradient-to-r from-purple-500 to-pink-500";
+      case "Pro":
+        return "bg-gradient-to-r from-blue-500 to-cyan-500";
+      case "Elite":
+        return "bg-gradient-to-r from-green-500 to-emerald-500";
+      default:
+        return "bg-gradient-to-r from-gray-500 to-slate-500";
     }
   };
 
@@ -65,7 +76,9 @@ export function ProfileHeader({ profile, memberName, memberAvatar }: ProfileHead
 
               {/* CODM Avatar */}
               <div className="text-center sm:text-left">
-                <p className="text-sm text-muted-foreground mb-2">Avatar CODM</p>
+                <p className="text-sm text-muted-foreground mb-2">
+                  Avatar CODM
+                </p>
                 <Avatar className="w-20 h-20 border-2 border-primary/20 shadow-lg mx-auto sm:mx-0">
                   <AvatarImage src={profile.codmAvatar} alt="CODM Avatar" />
                   <AvatarFallback className="bg-gradient-to-br from-primary/30 to-primary/20 text-primary font-bold">
@@ -79,13 +92,19 @@ export function ProfileHeader({ profile, memberName, memberAvatar }: ProfileHead
             <div className="flex-1 space-y-4">
               {/* Name and Username */}
               <div>
-                <h1 className="text-3xl font-bold text-foreground">{memberName}</h1>
-                <p className="text-xl text-muted-foreground">@{profile.username}</p>
+                <h1 className="text-3xl font-bold text-foreground">
+                  {memberName}
+                </h1>
+                <p className="text-xl text-muted-foreground">
+                  @{profile.username}
+                </p>
               </div>
 
               {/* Rank and Level */}
               <div className="flex flex-wrap gap-3">
-                <Badge className={`${getRankColor()} text-white border-0 px-3 py-1`}>
+                <Badge
+                  className={`${getRankColor()} text-white border-0 px-3 py-1`}
+                >
                   <Shield className="w-4 h-4 mr-1" />
                   {profile.rank}
                 </Badge>
@@ -107,11 +126,15 @@ export function ProfileHeader({ profile, memberName, memberAvatar }: ProfileHead
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 <div>
                   <p className="text-sm text-muted-foreground">UUID</p>
-                  <p className="font-mono text-foreground font-semibold">{profile.uuid}</p>
+                  <p className="font-mono text-foreground font-semibold">
+                    {profile.uuid}
+                  </p>
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Clan</p>
-                  <p className="text-foreground font-semibold">{profile.clan}</p>
+                  <p className="text-foreground font-semibold">
+                    {profile.clan}
+                  </p>
                 </div>
               </div>
             </div>

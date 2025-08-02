@@ -1,14 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CODMProfile } from "@shared/leaderboard";
-import { 
-  Target, 
-  Zap, 
-  GamepadIcon, 
-  TrendingUp, 
-  Crosshair, 
+import {
+  Target,
+  Zap,
+  GamepadIcon,
+  TrendingUp,
+  Crosshair,
   Heart,
-  Award
+  Award,
 } from "lucide-react";
 
 interface StatsCardsProps {
@@ -79,7 +79,9 @@ export function StatsCards({ profile }: StatsCardsProps) {
               <div className={`p-3 rounded-xl ${stat.bgColor} mb-3`}>
                 <stat.icon className={`w-6 h-6 ${stat.color}`} />
               </div>
-              <p className="text-2xl font-bold text-foreground mb-1">{stat.value}</p>
+              <p className="text-2xl font-bold text-foreground mb-1">
+                {stat.value}
+              </p>
               <p className="text-sm text-muted-foreground">{stat.title}</p>
             </div>
           ))}

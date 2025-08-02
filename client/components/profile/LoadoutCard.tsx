@@ -10,7 +10,9 @@ interface LoadoutCardProps {
 
 export function LoadoutCard({ loadout, isMain = false }: LoadoutCardProps) {
   return (
-    <Card className={`border ${isMain ? 'border-primary/50 bg-primary/5' : 'border-border bg-card'} transition-all hover:shadow-md`}>
+    <Card
+      className={`border ${isMain ? "border-primary/50 bg-primary/5" : "border-border bg-card"} transition-all hover:shadow-md`}
+    >
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center justify-between">
           <span className="text-lg">{loadout.name}</span>
@@ -30,17 +32,21 @@ export function LoadoutCard({ loadout, isMain = false }: LoadoutCardProps) {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Arme Principale</p>
-              <p className="font-semibold text-foreground">{loadout.primaryWeapon}</p>
+              <p className="font-semibold text-foreground">
+                {loadout.primaryWeapon}
+              </p>
             </div>
           </div>
-          
+
           <div className="flex items-center gap-3">
             <div className="p-2 bg-blue-500/10 rounded-lg">
               <Target className="w-4 h-4 text-blue-500" />
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Arme Secondaire</p>
-              <p className="font-semibold text-foreground">{loadout.secondaryWeapon}</p>
+              <p className="font-semibold text-foreground">
+                {loadout.secondaryWeapon}
+              </p>
             </div>
           </div>
         </div>
@@ -64,7 +70,9 @@ export function LoadoutCard({ loadout, isMain = false }: LoadoutCardProps) {
         <div>
           <div className="flex items-center gap-2 mb-3">
             <Zap className="w-4 h-4 text-yellow-500" />
-            <p className="text-sm font-medium text-muted-foreground">Séries d'Éliminations</p>
+            <p className="text-sm font-medium text-muted-foreground">
+              Séries d'Éliminations
+            </p>
           </div>
           <div className="flex flex-wrap gap-2">
             {loadout.scorestreaks.map((scorestreak, index) => (

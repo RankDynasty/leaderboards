@@ -9,15 +9,19 @@ import { Settings, Users, Calendar } from "lucide-react";
 
 export default function MemberProfile() {
   const { memberId } = useParams();
-  
-  const member = mockMembers.find(m => m.id === memberId);
-  
+
+  const member = mockMembers.find((m) => m.id === memberId);
+
   if (!member) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-2">Membre introuvable</h1>
-          <p className="text-muted-foreground">Le profil demandé n'existe pas.</p>
+          <h1 className="text-2xl font-bold text-foreground mb-2">
+            Membre introuvable
+          </h1>
+          <p className="text-muted-foreground">
+            Le profil demandé n'existe pas.
+          </p>
         </div>
       </div>
     );
@@ -27,7 +31,7 @@ export default function MemberProfile() {
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
       <div className="container mx-auto px-4 py-6 max-w-6xl">
         {/* Profile Header */}
-        <ProfileHeader 
+        <ProfileHeader
           profile={member.codmProfile}
           memberName={member.name}
           memberAvatar={member.avatar || "??"}
@@ -51,8 +55,8 @@ export default function MemberProfile() {
               {member.codmProfile.loadouts.length > 0 ? (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {member.codmProfile.loadouts.map((loadout, index) => (
-                    <LoadoutCard 
-                      key={loadout.id} 
+                    <LoadoutCard
+                      key={loadout.id}
                       loadout={loadout}
                       isMain={index === 0}
                     />
@@ -87,15 +91,23 @@ export default function MemberProfile() {
               <div className="flex justify-between items-center p-3 bg-muted/20 rounded-lg">
                 <span className="font-medium">MJ Category</span>
                 <div className="text-right">
-                  <p className="font-bold text-lg">{member.mjPoints.total.toLocaleString()}</p>
-                  <p className="text-sm text-muted-foreground">+{member.mjPoints.lastMonth} ce mois</p>
+                  <p className="font-bold text-lg">
+                    {member.mjPoints.total.toLocaleString()}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    +{member.mjPoints.lastMonth} ce mois
+                  </p>
                 </div>
               </div>
               <div className="flex justify-between items-center p-3 bg-muted/20 rounded-lg">
                 <span className="font-medium">BR Category</span>
                 <div className="text-right">
-                  <p className="font-bold text-lg">{member.brPoints.total.toLocaleString()}</p>
-                  <p className="text-sm text-muted-foreground">+{member.brPoints.lastMonth} ce mois</p>
+                  <p className="font-bold text-lg">
+                    {member.brPoints.total.toLocaleString()}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    +{member.brPoints.lastMonth} ce mois
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -112,14 +124,20 @@ export default function MemberProfile() {
             <CardContent className="space-y-4">
               <div className="space-y-3">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Dernière activité</span>
+                  <span className="text-muted-foreground">
+                    Dernière activité
+                  </span>
                   <span className="font-medium">
-                    {new Date(member.codmProfile.lastActive).toLocaleDateString('fr-FR')}
+                    {new Date(member.codmProfile.lastActive).toLocaleDateString(
+                      "fr-FR",
+                    )}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Saison actuelle</span>
-                  <span className="font-medium">Saison {member.codmProfile.currentSeason}</span>
+                  <span className="font-medium">
+                    Saison {member.codmProfile.currentSeason}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Clan</span>

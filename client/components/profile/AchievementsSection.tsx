@@ -6,7 +6,9 @@ interface AchievementsSectionProps {
   achievements: string[];
 }
 
-export function AchievementsSection({ achievements }: AchievementsSectionProps) {
+export function AchievementsSection({
+  achievements,
+}: AchievementsSectionProps) {
   const getAchievementIcon = (achievement: string) => {
     if (achievement.includes("Legendary") || achievement.includes("Nuclear")) {
       return <Trophy className="w-4 h-4 text-yellow-500" />;
@@ -52,14 +54,16 @@ export function AchievementsSection({ achievements }: AchievementsSectionProps) 
                 {getAchievementIcon(achievement)}
               </div>
               <div className="flex-1">
-                <Badge className={`${getAchievementColor(achievement)} border-0`}>
+                <Badge
+                  className={`${getAchievementColor(achievement)} border-0`}
+                >
                   {achievement}
                 </Badge>
               </div>
             </div>
           ))}
         </div>
-        
+
         {achievements.length === 0 && (
           <div className="text-center py-8 text-muted-foreground">
             <Trophy className="w-12 h-12 mx-auto mb-3 opacity-30" />
