@@ -20,17 +20,17 @@ export function Leaderboard() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto px-4 py-6 sm:py-8 max-w-4xl">
         {/* Header */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
             <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
             Live Rankings
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 sm:mb-3">
             Competition Leaderboard
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Track member performance across MJ and BR categories with real-time rankings and monthly progress.
           </p>
         </div>
