@@ -36,17 +36,17 @@ export function Leaderboard() {
         </div>
 
         {/* Stats Overview */}
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <StatsOverview category={activeCategory} />
         </div>
 
         {/* Category Tabs */}
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <div className="flex justify-center">
-            <div className="w-full max-w-md">
-              <CategoryTabs 
-                activeCategory={activeCategory} 
-                onCategoryChange={handleCategoryChange} 
+            <div className="w-full max-w-md px-4 sm:px-0">
+              <CategoryTabs
+                activeCategory={activeCategory}
+                onCategoryChange={handleCategoryChange}
               />
             </div>
           </div>
