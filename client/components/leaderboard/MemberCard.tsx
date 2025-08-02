@@ -9,8 +9,10 @@ import {
   Trophy,
   Medal,
   Award,
+  ExternalLink,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 
 interface MemberCardProps {
   entry: LeaderboardEntry;
