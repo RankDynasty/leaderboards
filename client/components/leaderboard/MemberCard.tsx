@@ -34,7 +34,7 @@ export function MemberCard({ entry, showAnimation = false }: MemberCardProps) {
   return (
     <Card
       className={cn(
-        "p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5",
+        "p-3 sm:p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5",
         getRankStyle(),
         showAnimation && "animate-in slide-in-from-bottom-2 duration-500"
       )}
