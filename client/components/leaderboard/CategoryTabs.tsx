@@ -7,18 +7,21 @@ interface CategoryTabsProps {
   onCategoryChange: (category: Category) => void;
 }
 
-export function CategoryTabs({ activeCategory, onCategoryChange }: CategoryTabsProps) {
+export function CategoryTabs({
+  activeCategory,
+  onCategoryChange,
+}: CategoryTabsProps) {
   return (
     <div className="flex bg-muted/50 rounded-xl p-1.5 gap-1">
       <Button
         variant="ghost"
         size="sm"
-        onClick={() => onCategoryChange('MJ')}
+        onClick={() => onCategoryChange("MJ")}
         className={cn(
           "flex-1 rounded-lg font-semibold transition-all duration-200",
-          activeCategory === 'MJ'
+          activeCategory === "MJ"
             ? "bg-primary text-primary-foreground shadow-sm"
-            : "text-muted-foreground hover:text-foreground hover:bg-background/50"
+            : "text-muted-foreground hover:text-foreground hover:bg-background/50",
         )}
       >
         MJ Category
@@ -26,12 +29,12 @@ export function CategoryTabs({ activeCategory, onCategoryChange }: CategoryTabsP
       <Button
         variant="ghost"
         size="sm"
-        onClick={() => onCategoryChange('BR')}
+        onClick={() => onCategoryChange("BR")}
         className={cn(
           "flex-1 rounded-lg font-semibold transition-all duration-200",
-          activeCategory === 'BR'
+          activeCategory === "BR"
             ? "bg-primary text-primary-foreground shadow-sm"
-            : "text-muted-foreground hover:text-foreground hover:bg-background/50"
+            : "text-muted-foreground hover:text-foreground hover:bg-background/50",
         )}
       >
         BR Category

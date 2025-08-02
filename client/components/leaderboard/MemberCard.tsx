@@ -2,7 +2,14 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { LeaderboardEntry } from "@shared/leaderboard";
-import { ChevronUp, ChevronDown, Minus, Trophy, Medal, Award } from "lucide-react";
+import {
+  ChevronUp,
+  ChevronDown,
+  Minus,
+  Trophy,
+  Medal,
+  Award,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface MemberCardProps {
@@ -27,7 +34,8 @@ export function MemberCard({ entry, showAnimation = false }: MemberCardProps) {
   };
 
   const getRankStyle = () => {
-    if (rank <= 3) return "bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20";
+    if (rank <= 3)
+      return "bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20";
     return "bg-card border-border";
   };
 
@@ -36,7 +44,7 @@ export function MemberCard({ entry, showAnimation = false }: MemberCardProps) {
       className={cn(
         "p-3 sm:p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5",
         getRankStyle(),
-        showAnimation && "animate-in slide-in-from-bottom-2 duration-500"
+        showAnimation && "animate-in slide-in-from-bottom-2 duration-500",
       )}
       style={{ animationDelay: showAnimation ? `${rank * 50}ms` : undefined }}
     >
@@ -54,13 +62,15 @@ export function MemberCard({ entry, showAnimation = false }: MemberCardProps) {
             </AvatarFallback>
           </Avatar>
           <div className="min-w-0 flex-1">
-            <h3 className="font-semibold text-foreground truncate text-sm sm:text-base">{member.name}</h3>
+            <h3 className="font-semibold text-foreground truncate text-sm sm:text-base">
+              {member.name}
+            </h3>
             <div className="hidden sm:flex items-center gap-2 mt-1">
               {getChangeIcon()}
               <span className="text-sm text-muted-foreground">
                 {change > 0 && `+${change}`}
                 {change < 0 && change}
-                {change === 0 && '0'} from last month
+                {change === 0 && "0"} from last month
               </span>
             </div>
             <div className="flex sm:hidden items-center gap-1 mt-1">
@@ -68,7 +78,7 @@ export function MemberCard({ entry, showAnimation = false }: MemberCardProps) {
               <span className="text-xs text-muted-foreground">
                 {change > 0 && `+${change}`}
                 {change < 0 && change}
-                {change === 0 && '0'}
+                {change === 0 && "0"}
               </span>
             </div>
           </div>

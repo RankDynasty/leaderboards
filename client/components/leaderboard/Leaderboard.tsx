@@ -7,7 +7,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 export function Leaderboard() {
-  const [activeCategory, setActiveCategory] = useState<Category>('MJ');
+  const [activeCategory, setActiveCategory] = useState<Category>("MJ");
   const [showAnimation, setShowAnimation] = useState(false);
 
   const leaderboardData = getLeaderboard(activeCategory);
@@ -31,7 +31,8 @@ export function Leaderboard() {
             Competition Leaderboard
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-            Track member performance across MJ and BR categories with real-time rankings and monthly progress.
+            Track member performance across MJ and BR categories with real-time
+            rankings and monthly progress.
           </p>
         </div>
 
@@ -66,9 +67,9 @@ export function Leaderboard() {
           </CardHeader>
           <CardContent className="space-y-3">
             {leaderboardData.map((entry) => (
-              <MemberCard 
-                key={entry.member.id} 
-                entry={entry} 
+              <MemberCard
+                key={entry.member.id}
+                entry={entry}
                 showAnimation={showAnimation}
               />
             ))}
@@ -78,7 +79,8 @@ export function Leaderboard() {
         {/* Footer note */}
         <div className="text-center mt-8">
           <p className="text-sm text-muted-foreground">
-            Rankings update in real-time • Last updated: {new Date().toLocaleTimeString()}
+            Rankings update in real-time • Last updated:{" "}
+            {new Date().toLocaleTimeString()}
           </p>
         </div>
       </div>
