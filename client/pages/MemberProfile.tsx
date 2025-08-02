@@ -8,7 +8,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Settings, Users, Calendar } from "lucide-react";
 
 export default function MemberProfile() {
-  const { memberId } = useParams();
+  const { memberId } = useParams<{ memberId: string }>();
+
+  console.log("MemberProfile rendered with ID:", memberId);
 
   const member = mockMembers.find((m) => m.id === memberId);
 
