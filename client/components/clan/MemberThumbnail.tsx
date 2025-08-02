@@ -40,24 +40,28 @@ export function MemberThumbnail({ member, index }: MemberThumbnailProps) {
 
   return (
     <Link to={`/member/${member.id}`} className="block group">
-      <Card className={cn(
-        "border transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden bg-gradient-to-br",
-        getRankColor()
-      )}
-      style={{ 
-        animationDelay: `${index * 100}ms`,
-      }}
+      <Card
+        className={cn(
+          "border transition-all duration-300 hover:shadow-xl hover:-translate-y-2 cursor-pointer overflow-hidden bg-gradient-to-br",
+          getRankColor(),
+        )}
+        style={{
+          animationDelay: `${index * 100}ms`,
+        }}
       >
         <CardContent className="p-6 text-center">
           {/* Member Avatar */}
           <div className="relative mb-4">
             <Avatar className="w-20 h-20 mx-auto border-4 border-background shadow-lg group-hover:scale-110 transition-transform duration-300">
-              <AvatarImage src={member.codmProfile.profilePicture} alt={member.name} />
+              <AvatarImage
+                src={member.codmProfile.profilePicture}
+                alt={member.name}
+              />
               <AvatarFallback className="bg-gradient-to-br from-primary/30 to-primary/20 text-primary text-xl font-bold">
                 {member.avatar}
               </AvatarFallback>
             </Avatar>
-            
+
             {/* Online Status */}
             <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-4 border-background flex items-center justify-center">
               <div className="w-2 h-2 bg-white rounded-full"></div>
@@ -70,7 +74,7 @@ export function MemberThumbnail({ member, index }: MemberThumbnailProps) {
             <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors">
               {member.name}
             </h3>
-            
+
             {/* CODM Username */}
             <div>
               <p className="text-sm text-muted-foreground mb-1">Pseudo CODM</p>
@@ -93,11 +97,15 @@ export function MemberThumbnail({ member, index }: MemberThumbnailProps) {
             {/* Stats Summary */}
             <div className="grid grid-cols-2 gap-2 pt-2">
               <div className="text-center">
-                <p className="text-lg font-bold text-foreground">{member.codmProfile.kdRatio}</p>
+                <p className="text-lg font-bold text-foreground">
+                  {member.codmProfile.kdRatio}
+                </p>
                 <p className="text-xs text-muted-foreground">K/D</p>
               </div>
               <div className="text-center">
-                <p className="text-lg font-bold text-foreground">{member.codmProfile.winRate.toFixed(0)}%</p>
+                <p className="text-lg font-bold text-foreground">
+                  {member.codmProfile.winRate.toFixed(0)}%
+                </p>
                 <p className="text-xs text-muted-foreground">Victoires</p>
               </div>
             </div>
