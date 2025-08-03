@@ -4,28 +4,31 @@ import { TrendingUp, Users, Target } from "lucide-react";
 
 interface StatsOverviewProps {
   category: Category;
+  entry: any[]; // Assuming entry is an array of leaderboard entries
 }
 
-export function StatsOverview({ category }: StatsOverviewProps) {
-  const totalMembers = mockMembers.length;
+export function StatsOverview({ category, entry }: StatsOverviewProps) {
+  const totalMembers = entry.length;
 
-  const categoryData = mockMembers.map((member) =>
+  console.log("Total Members:", entry);
+
+  const categoryData = entry.map((member) =>
     category === "MJ" ? member.mjPoints : member.brPoints,
   );
+
+  console.log("Category Data:", categoryData);
 
   const totalPoints = categoryData.reduce(
     (sum, points) => sum + points.total,
     0,
   );
-  const totalLastMonth = categoryData.reduce(
-    (sum, points) => sum + points.lastMonth,
-    0,
-  );
+
+
   const averagePoints = Math.round(totalPoints / totalMembers);
 
   const stats = [
     {
-      title: "Total Members",
+      title: "Total Membres",
       value: totalMembers,
       icon: Users,
       color: "text-blue-500",
@@ -37,7 +40,7 @@ export function StatsOverview({ category }: StatsOverviewProps) {
       color: "text-purple-500",
     },
     {
-      title: "Average Score",
+      title: "Score Moyenne",
       value: averagePoints.toLocaleString(),
       icon: TrendingUp,
       color: "text-green-500",

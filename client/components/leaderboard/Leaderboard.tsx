@@ -5,12 +5,21 @@ import { MemberCard } from "./MemberCard";
 import { StatsOverview } from "./StatsOverview";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useQuery } from "@tanstack/react-query";
+import { fetchLeaderboardEntry } from "@/services/api";
 
 export function Leaderboard() {
   const [activeCategory, setActiveCategory] = useState<Category>("MJ");
   const [showAnimation, setShowAnimation] = useState(false);
 
-  const leaderboardData = getLeaderboard(activeCategory);
+  // const leaderboardData = getLeaderboard(activeCategory);
+
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["leaderboardEntry", activeCategory], // Clé unique pour cette requête
+    queryFn: () => fetchLeaderboardEntry(activeCategory), // Fonction pour récupérer les données
+  });
+
+  const leaderboardData = data || [];
 
   const handleCategoryChange = (category: Category) => {
     setActiveCategory(category);
@@ -25,20 +34,21 @@ export function Leaderboard() {
         <div className="text-center mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
             <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-            Live Rankings
+            Rank Dynasty Live
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 sm:mb-3">
-            Competition Leaderboard
+            Classement interne du CLAN
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-            Track member performance across MJ and BR categories with real-time
-            rankings and monthly progress.
+            Visualiser ici les performances en internes du clan BR et MJ avec les progressions mensuels.
           </p>
         </div>
 
         {/* Stats Overview */}
         <div className="mb-6 sm:mb-8">
-          <StatsOverview category={activeCategory} />
+          <StatsOverview category={activeCategory} entry={leaderboardData.map(
+            (entry) => (entry.member))
+          } />
         </div>
 
         {/* Category Tabs */}
@@ -58,10 +68,10 @@ export function Leaderboard() {
           <CardHeader className="pb-4">
             <div className="flex items-center justify-between">
               <CardTitle className="text-xl font-bold">
-                {activeCategory} Category Rankings
+                Classement {activeCategory}
               </CardTitle>
               <Badge variant="outline" className="text-xs">
-                {leaderboardData.length} members
+                {leaderboardData.length} membres
               </Badge>
             </div>
           </CardHeader>
@@ -79,7 +89,7 @@ export function Leaderboard() {
         {/* Footer note */}
         <div className="text-center mt-8">
           <p className="text-sm text-muted-foreground">
-            Rankings update in real-time • Last updated:{" "}
+            Classement mise à jour en temps réels • {" "}
             {new Date().toLocaleTimeString()}
           </p>
         </div>

@@ -24,7 +24,7 @@ export function CategoryTabs({
             : "text-muted-foreground hover:text-foreground hover:bg-background/50",
         )}
       >
-        MJ Category
+        MJ (MultiJoueur)
       </Button>
       <Button
         variant="ghost"
@@ -37,7 +37,7 @@ export function CategoryTabs({
             : "text-muted-foreground hover:text-foreground hover:bg-background/50",
         )}
       >
-        BR Category
+        BR (Battle Royale)
       </Button>
     </div>
   );
